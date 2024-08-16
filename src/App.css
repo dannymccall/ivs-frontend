@@ -1,0 +1,476 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background:transparent;
+}
+.container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(to right, #03071b, #02040f)
+}
+
+.header h6 {
+  font-size: 35px;
+  color: #EBAB00;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.header {
+  width: 100%;
+  background: linear-gradient(to right, #03071b, #02040f);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.header nav {
+  align-self: center;
+}
+
+.header nav ul {
+  display: flex;
+  align-self: center;
+  list-style-type: none;
+  width: 20rem;
+  justify-content: space-evenly;
+}
+
+.header nav ul .link {
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fff;
+  transition: all 0.5s ease-in-out;
+}
+
+.header nav ul .link:hover {
+  color: #EBAB00;
+}
+
+
+.container .body {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./assets/bg.jpg');
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container .body .section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* Center horizontally */
+  align-items: center;
+  /* Center vertically */
+  height: 80vh;
+}
+
+.container .body .section .form form {
+  background-color: #fff;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px
+}
+
+.container .body .section .form p {
+  margin-bottom: 10px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 20px;
+  font-weight: 700;
+  background-color: #fff;
+  height: 40px;
+  border-bottom: 0.5px solid #c6c6c6;
+}
+
+.container .body .section .form span {
+  background-color: rgba(219, 107, 107, 0.5);
+  padding: 7px;
+  margin-bottom: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  text-align: center;
+  border-radius: 3px;
+}
+
+label {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  margin-bottom: 16px;
+  font-size: 18px;
+}
+
+.container .body .section .form form .textInput {
+  border: none;
+  background-color: #f1f1f1;
+  height: 35px;
+  width: 15rem;
+  color: black;
+  outline: none;
+  font-size: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-inline: 20px;
+  margin-bottom: 20px;
+  border-radius: 3px;
+}
+
+.container .body .section .form form .textInput:hover {
+  border: 3px solid #EBA200
+}
+
+.container .body .section .form form .textInput:focus {
+  box-shadow: 0 4px 8px 0 rgba(235, 162, 0, 0.7);
+}
+
+.container .body .section .form form .submitBtn {
+  background: linear-gradient(to right, #03071b, #02040f);
+  padding: 1em 3em;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  z-index: 0;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  transition: all 0.5s ease;
+  border-radius: 3px;
+  position: relative;
+}
+
+.container .body .section .form form .submitBtn::after {
+  content: '';
+  background: linear-gradient(to right, #ffee00, #ffb300);
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100%;
+  width: 0px;
+  border-radius: 3px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  transition: 150ms ease-in-out;
+}
+
+.container .body .section .form form .submitBtn:hover::after {
+  width: 100%;
+}
+
+.container .body .section .form form .submitBtn:hover {
+  color: #000;
+}
+
+.container .body .section .form form .disabled {
+  background: #7e7e7e;
+  padding: 12px;
+  color: #000000;
+  font-family: Arial, Helvetica, sans-serif;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  transition: all 0.5s ease;
+  border-radius: 3px;
+}
+
+/* .container .body .section .form form .submitBtn:hover{
+  background: #202020;
+
+} */
+
+
+.container-section {
+  width: 100%;
+  height: 35rem;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./assets/bg.jpg');
+}
+
+.container-section {
+  color: #fff;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  align-content: center;
+}
+
+.container-section h1 {
+  font-size: 5rem;
+  font-weight: 500;
+
+}
+
+.container .navigators {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .navigators .navigators-containers {
+  margin: 50px;
+  width: 20rem;
+  height: 20rem;
+  background: #fff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: all 0.5s ease;
+  border-radius: 10px;
+}
+
+.container .navigators .navigators-containers button {
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+  color: #000;
+  border-top: 1px solid rgba(243, 187, 5, 0.7);
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+  transition: all 0.5s ease;
+  font-size: 23px;
+  border: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+
+.container .navigators .navigators-containers:hover {
+  border: 1px solid rgba(243, 187, 5, 0.7);
+
+}
+
+.container .navigators .navigators-containers button:hover {
+  background: rgba(243, 187, 5, 0.7);
+}
+
+.container .navigators .navigators-containers .icon {
+  width: 100px;
+  align-self: center;
+  margin-bottom: 5rem;
+}
+
+.table-container {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./assets/bg.jpg');
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.table-container table {
+  border-collapse: collapse;
+  width: 80rem;
+  background: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 10px;
+}
+
+.table-container .table-sub-container{
+  margin-top: 7rem;
+
+}
+.table-container .table-sub-container .search-div{
+  background: linear-gradient(to right, #03071b, #02040f);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.table-container .table-sub-container .search-div h1{
+  font-family:  'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: #fff;
+  font-size: 15px;
+  padding: 10px;
+}
+.table-container .table-sub-container .search-div input{
+  height: 25px;
+  align-self: center;
+  width: 20rem;
+  border: none;
+  font-family:Arial, Helvetica, sans-serif ;
+  padding-inline: 1rem;
+  margin-right:3rem;
+  transition: all 0.5s ease-in-out;
+}
+.table-container .table-sub-container .search-div input:focus{
+  outline: none;
+  border: 2px solid #EBA200;
+}
+
+.table-container td {
+  text-align: left;
+  padding: 8px;
+}
+
+
+
+
+
+.table-container table thead th {
+  background: linear-gradient(to right, #03071b, #02040f);
+  color: #fff;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-align: left;
+  font-size: 10px;
+  margin: 20px;
+  padding: 5px;
+  
+}
+
+
+
+
+.table-container table:nth-child(first) {
+  background: linear-gradient(to right, #03071b, #02040f);
+}
+
+.table-container table tbody td {
+  color: #606060;
+  height: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  padding-right:50px;
+  
+}
+
+.table-container tr:hover {
+  background-color: #dddddd;
+  color: #000
+}
+
+
+
+.table-container tr:nth-child(even) {
+  background-color: rgba(224, 224, 224, 0.3);
+}
+
+.table-container table tbody tr:hover {
+  font-weight: 600;
+}
+
+.table-container .actions {
+  width: 70px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.table-container .actions button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.table-container .actions .viewBtn:hover::after {
+  content: 'View Asset';
+  position: absolute;
+  font-size: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 15px 0px 0 0;
+  background: #aeaeae;
+  padding: 3px;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+.table-container .actions .editBtn:hover::after {
+  content: 'Edit Asset';
+  position: absolute;
+  font-size: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 15px 0px 0 0;
+  background: #aeaeae;
+  padding: 3px;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+.table-container .actions .delBtn:hover::after {
+  content: 'Delete Asset';
+  position: absolute;
+  font-size: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 15px 0px 0 0;
+  background: #aeaeae;
+  padding: 3px;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+.table-container .addNewAssetBtn {
+  width: 100%;
+  justify-content:end;
+  align-self:flex-end;
+  background-color: #EBA200;
+}
+
+.table-container .addNewAssetBtn button {
+  float: right;
+  background-color: rgb(54, 48, 74);
+  color: #fff;
+  border: none;
+  padding: 5px 20px;
+  border-radius: 5px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  cursor: pointer;
+  z-index: 0;
+  position: relative;
+
+}
+
+.table-container .addNewAssetBtn button::after {
+  content: '';
+  background: linear-gradient(to right, #ffee00, #ffb300);
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  height: 100%;
+  width: 0px;
+  border-radius: 3px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  transition: 150ms ease-in-out;
+}
+
+.table-container .addNewAssetBtn button:hover::after {
+  width: 100%;
+}
+
+.table-container .addNewAssetBtn button:hover {
+  color: #000;
+  font-weight: 700;
+}
+
+.view-container {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 100%;
+  width: 100%;
+  left: 50%;
+  bottom: 0;
+  right: 0;
+  background: rgb(0, 0, 0, 0.4);
+  transform: translate(-50%, -50%) scale(0.1);
+  visibility: hidden;
+  transition: transform 0.6s;
+}
+
+.popup {
+  transform: translate(-50%, -50%) scale(1);
+  visibility: visible;
+  top: 50%;
+}

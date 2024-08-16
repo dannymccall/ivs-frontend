@@ -1,0 +1,118 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container .body .section .assign-form form {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    width: 35rem;
+    align-items: center;
+}
+
+.container .body .section .assign-form p {
+    background: linear-gradient(to right, #03071b, #02040f);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.container .body .section .assign-form .label {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.container .body .section .assign-form option{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.container .body .section .assign-form select {
+    width: 13rem;
+    height: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    border: none;
+    background: #f3f3f3;
+    outline: none;
+    box-shadow: 0 2px 5px 0 rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    padding-left: 20px;
+    font-size: 15px;
+}
+
+.container .body .section .assign-form select:hover {
+    border: 3px solid #EBA200
+}
+
+.container .body .section .assign-form select:focus {
+    box-shadow: 0 4px 8px 0 rgba(235, 162, 0, 0.7);
+
+}
+
+.container .body .section .assign-form .numberInput {
+    width: 90%;
+    align-self: center;
+    border: none;
+    background-color: #f1f1f1;
+    height: 40px;
+    color: black;
+    outline: none;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-inline: 20px;
+    margin-bottom: 40px;
+    border-radius: 5px;
+}
+
+.container .body .section .assign-form .numberInput:hover {
+    border: 3px solid #EBA200
+}
+
+.container .body .section .assign-form .numberInput:focus {
+    box-shadow: 0 4px 8px 0 rgba(235, 162, 0, 0.7);
+}
+
+.container .body .section .assign-form .submitBtn{
+    background: linear-gradient(to right, #03071b, #02040f);
+    padding: 1em 2em;
+    color: #fff;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    z-index: 0;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    transition: all 0.5s ease;
+    border-radius: 5px;
+    position: relative;
+    width: 80%;
+    margin-bottom: 50px;
+}
+
+.container .body .section .assign-form .submitBtn:hover{
+    color: #000;
+    font-weight: 700;
+}
+
+.container .body .section .assign-form .submitBtn::after {
+    content: '';
+    background: linear-gradient(to right, #ffee00, #ffb300);
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100%;
+    width: 0px;
+    border-radius: 5px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    transition: 150ms ease-in-out;
+  }
+
+  .container .body .section .assign-form .submitBtn:hover::after {
+    width: 100%;
+
+  }
+  
