@@ -1,4 +1,11 @@
-import React, { useState, useEffect, useRef,memo,useCallback } from "react";
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  memo,
+  useMemo,
+  useCallback,
+} from "react";
 import TableViewAssets from "../WidgetComponents/TableViewAssets";
 import { makeRequest, url } from "../../utils/make-request";
 import Header from "../WidgetComponents/Header";
@@ -13,7 +20,7 @@ function ViewAssets() {
   const [filteredItems, setFilteredItems] = useState([]);
   const divRef = useRef(null);
 
-  useEffect(useCallback(() => {
+  useEffect(() => {
     async function getAssets() {
       const data = await makeRequest(
         `${url}/assetsApi.php`,
@@ -22,47 +29,45 @@ function ViewAssets() {
         "getAssets"
       );
       const { success, assets } = data;
-
+      console.log(assets);
       if (success) {
         setAssets(assets);
-        setFilteredItems(assets)
+        setFilteredItems(assets);
       }
     }
     getAssets();
-  },[]));
-  
-  function searchFn(e){
+  }, []);
+
+  function searchFn(e) {
     const itemsFiltered = assets.filter((asset) => {
       return asset.assetName.toLowerCase().includes(e.toLowerCase());
-    })
+    });
     setFilteredItems(itemsFiltered);
   }
-
-
 
   function closeModal() {
     divRef.current.classList.remove("popup");
     setAsset({});
-     setState("");
+    setState("");
   }
 
   function setFormSate(item) {
     setState("edit");
     setAsset(item);
-    console.log({state})
+    console.log({ state });
   }
 
-  function addNewAsset(){
+  function addNewAsset() {
     setState("add");
     divRef.current.classList.add("popup");
-    console.log({state})
+    console.log({ state });
   }
-  
-  function editButton(item){
+
+  function editButton(item) {
     divRef.current.classList.add("popup");
     setState("edit");
-    setAsset(item)
-    console.log({state})
+    setAsset(item);
+    console.log({ state });
   }
 
   const updateProperty = (key, value) => {
@@ -129,7 +134,6 @@ function ViewAssets() {
         <TableViewAssets
           assets={filteredItems}
           deleteAsset={deleteAsset}
-          
           viewAsset={viewAsset}
           editAsset={editButton}
           addNewAsset={addNewAsset}
@@ -152,5 +156,4 @@ function ViewAssets() {
   );
 }
 
-
-export default memo(ViewAssets)
+export default memo(ViewAssets);

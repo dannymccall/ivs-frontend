@@ -24,6 +24,7 @@ export default function AssignAsset() {
     quantity: 0,
   });
 
+  const [availableQuanity, setAvailableQuanity] = useState(0);
   useEffect(() => {
     async function getAssets() {
       const data = await makeRequest(
@@ -60,6 +61,7 @@ export default function AssignAsset() {
 
   function handleAssetChange(e) {
     setAssignment({ ...assignment, assetName: e.target.value });
+    setAvailableQuanity(0)
     setModelDropDown(
       assets
         .map((item) => {
@@ -113,7 +115,7 @@ export default function AssignAsset() {
     );
     console.log(data);
     const { success, message } = data;
-    console.log(data)
+    console.log(data);
     if (!success) {
       setIsSubmitting(false);
       setShowError({
@@ -130,6 +132,12 @@ export default function AssignAsset() {
     }
   }
 
+  function setQuantityLeft(model) {
+    // assets.map((asset) => (asset.model === model ? asset.qty : 0))
+    for (let asset of assets)
+      if (asset.model === model) setAvailableQuanity(asset.qty);
+  }
+
   return (
     <>
       <div className="container">
@@ -144,145 +152,128 @@ export default function AssignAsset() {
                   alt=""
                   style={{ marginBottom: "1rem" }}
                 />
-                {showError.error && <span style={{color:'red', fontSize:'12px'}}>{showError.erorrMsg}</span>}
+                {showError.error && (
+                  <span style={{ color: "red", fontSize: "12px" }}>
+                    {showError.erorrMsg}
+                  </span>
+                )}
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: "column",
+                    flexDirection: "row",
+                    width: "70%",
+                    height: "30rem",
+                    // justifyContent: "center",
+                    flexWrap: "wrap",
+                    alignSelf: "center",
+                    marginTop: "30px",
                   }}
                 >
-                  <div style={{ display: "flex", flexDirection: "row" }}>
-                    <div
-                      style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        margin: "20px",
-                      }}
+                  <div className="form-div">
+                    <MyLabel
+                      labelType="asset"
+                      labelName="Asset"
+                      className={"label"}
+                    />
+                    <select
+                      name=""
+                      id=""
+                      onChange={(e) => handleAssetChange(e)}
                     >
-                      <MyLabel
-                        labelType="asset"
-                        labelName="Asset"
-                        className={"label"}
-                      />
-                      <select
-                        name=""
-                        id=""
-                        onChange={(e) => handleAssetChange(e)}
-                      >
-                        <option value="">select asset</option>
+                      <option value="">select asset</option>
 
-                        {assetsDropDown.map((asset) => {
-                          return (
-                            <option key={asset} value={asset}>
-                              {asset}
-                            </option>
-                          );
-                        })}
-                      </select>
-                    </div>
-                    <div
-                      style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        margin: "20px",
+                      {assetsDropDown.map((asset) => {
+                        return (
+                          <option key={asset} value={asset}>
+                            {asset}
+                          </option>
+                        );
+                      })}
+                    </select>
+                  </div>
+                  <div className="form-div">
+                    <MyLabel
+                      labelType="model"
+                      labelName="Model"
+                      className={"label"}
+                    />
+                    <select
+                      name=""
+                      id=""
+                      onChange={(e) => {
+                        setAssignment({
+                          ...assignment,
+                          assetModel: e.target.value,
+                        });
+                        setQuantityLeft(e.target.value);
+                        // setAvailableQuanity(assignment.qty)
                       }}
                     >
-                      <MyLabel
-                        labelType="model"
-                        labelName="Model"
-                        className={"label"}
-                      />
-                      <select
-                        name=""
-                        id=""
-                        onChange={(e) =>
-                          setAssignment({
-                            ...assignment,
-                            assetModel: e.target.value,
-                          })
-                        }
-                      >
-                        <option value="">select model</option>
-                        {modelDropDown.map((model) => {
-                          return (
-                            <option key={model} value={model}>
-                              {model}
-                            </option>
-                          );
-                        })}
-                      </select>
-                    </div>
+                      <option value="">select model</option>
+                      {modelDropDown.map((model) => {
+                        return (
+                          <option key={model} value={model}>
+                            {model}
+                          </option>
+                        );
+                      })}
+                    </select>
                   </div>
 
-                  <div style={{ display: "flex", flexDirection: "row" }}>
-                    <div
-                      style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        margin: "20px",
-                      }}
+                  <div className="form-div">
+                    <MyLabel
+                      labelType="location"
+                      labelName="Location"
+                      className={"label"}
+                    />
+                    <select
+                      name=""
+                      id=""
+                      onChange={(e) => handleLocationBlock(e)}
                     >
-                      <MyLabel
-                        labelType="location"
-                        labelName="Location"
-                        className={"label"}
-                      />
-                      <select
-                        name=""
-                        id=""
-                        onChange={(e) => handleLocationBlock(e)}
-                      >
-                        <option value="">select location</option>
-                        {locationDropDown.map((location) => {
-                          return (
-                            <option key={location} value={location}>
-                              {location}
-                            </option>
-                          );
-                        })}
-                      </select>
-                    </div>
-                    <div
-                      style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        margin: "20px",
-                      }}
-                    >
-                      <MyLabel
-                        labelType="room-number"
-                        labelName="Room Number"
-                        className={"label"}
-                      />
-                      <select
-                        name=""
-                        id=""
-                        onChange={(e) =>
-                          setAssignment({
-                            ...assignment,
-                            locationRoom: e.target.value,
-                          })
-                        }
-                      >
-                        <option value="">select room</option>
-                        {locationRoom.map((room) => {
-                          return (
-                            <option key={room} value={room}>
-                              {room}
-                            </option>
-                          );
-                        })}
-                      </select>
-                    </div>
+                      <option value="">select location</option>
+                      {locationDropDown.map((location) => {
+                        return (
+                          <option key={location} value={location}>
+                            {location}
+                          </option>
+                        );
+                      })}
+                    </select>
                   </div>
-                  <div style={{ display: "flex", flexDirection: "column" }}>
-                    <div style={{ marginLeft: "20px", marginBottom: "20px" }}>
-                      <MyLabel
-                        labelType="qty"
-                        labelName="Quantity"
-                        className={"label"}
-                      />
-                    </div>
+                  <div className="form-div">
+                    <MyLabel
+                      labelType="room-number"
+                      labelName="Room Number"
+                      className={"label"}
+                    />
+                    <select
+                      name=""
+                      id=""
+                      onChange={(e) =>
+                        setAssignment({
+                          ...assignment,
+                          locationRoom: e.target.value,
+                        })
+                      }
+                    >
+                      <option value="">select room</option>
+                      {locationRoom.map((room) => {
+                        return (
+                          <option key={room} value={room}>
+                            {room}
+                          </option>
+                        );
+                      })}
+                    </select>
+                  </div>
+
+                  <div className="form-div">
+                    <MyLabel
+                      labelType="qty"
+                      labelName="Quantity"
+                      className={"label"}
+                    />
                     <MyInput
                       type="number"
                       value={assignment.quantity}
@@ -296,6 +287,22 @@ export default function AssignAsset() {
                         });
                       }}
                       placeholder={"Quantity"}
+                    />
+                  </div>
+                  <div className="form-div">
+                    <MyLabel
+                      labelType="qty"
+                      labelName="Available quantity"
+                      className={"label"}
+                    />
+                    <MyInput
+                      type="text"
+                      value={availableQuanity}
+                      className="numberInput"
+                      name="qty"
+                      onChange={(e) => {}}
+                      placeholder={"Quantity"}
+                      disabled={true}
                     />
                   </div>
                 </div>

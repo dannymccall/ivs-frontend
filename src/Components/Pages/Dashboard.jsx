@@ -1,4 +1,5 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import Header from "../WidgetComponents/Header";
 import useClock from "../WidgetComponents/Clock";
 import { icons } from "../WidgetComponents/Icons";
@@ -7,8 +8,14 @@ import "../../App.css";
 
 export default function Dashboard() {
   const greet = useClock();
-
+  const [greeting, setGreeting] = useState("")
   const navigate = useNavigate();
+
+  useEffect(() => {
+    setTimeout(() => {
+      setGreeting(greet)
+    }, 300);
+  })
   function handleAddNavigator() {
     navigate("/auth/add-asset");
   }
@@ -17,7 +24,9 @@ export default function Dashboard() {
       <div className="container">
         <Header />
         <div className="container-section">
-          <h1 className="clock">{`${greet} admin`}</h1>
+          <div className="greeting">
+            <h1 className="clock">{`${greeting}`}</h1>
+          </div>
         </div>
         <div className="navigators">
           <div className="navigators-containers">

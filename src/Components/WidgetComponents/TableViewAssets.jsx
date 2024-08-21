@@ -1,7 +1,9 @@
-import React, { useEffect, memo } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { icons } from "../WidgetComponents/Icons";
 import "../../App.css";
+import { IoSearchSharp } from "react-icons/io5";
+
 function TableViewAssets({
   assets,
   deleteAsset,
@@ -11,6 +13,15 @@ function TableViewAssets({
   searchFn,
 }) {
   const navigate = useNavigate();
+  const [showSearchIcon, setShowSearchIcon] = useState(true);
+
+  function removeIcon() {
+    setShowSearchIcon(false);
+  }
+
+  function showIcon() {
+    setShowSearchIcon(true);
+  }
 
   return (
     <>
@@ -18,11 +29,34 @@ function TableViewAssets({
         <div className="table-sub-container">
           <div className="search-div">
             <h1>Assets</h1>
-            <input
-              className="search-input"
-              placeholder="search by assetname..."
-              onChange={(e) => searchFn(e.target.value)}
-            />
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              <input
+                className="search-input"
+                placeholder="Search by asset name..."
+                onChange={(e) => searchFn(e.target.value)}
+                onFocus={removeIcon}
+                onBlur={showIcon}
+              />
+              {showSearchIcon && (
+                <IoSearchSharp
+                  className="search-icon"
+                  style={{
+                    background: "#03071b",
+                    color: "#fff",
+                    padding: "10px",
+                    position: "absolute",
+                    marginLeft: "17rem",
+                  }}
+                  size={"40px"}
+                />
+              )}
+            </div>
           </div>
           <table>
             <thead>
@@ -89,7 +123,12 @@ function TableViewAssets({
                 })
               ) : (
                 <tr>
-                  <td>No assets available</td>
+                  <td
+                    style={{ fontSize: "18px", textAlign: "center" }}
+                    colSpan={10}
+                  >
+                    No assets available
+                  </td>
                 </tr>
               )}
               <td colSpan="9" className="addNewAssetBtn">
@@ -105,4 +144,4 @@ function TableViewAssets({
   );
 }
 
-export default memo(TableViewAssets);
+export default TableViewAssets;
