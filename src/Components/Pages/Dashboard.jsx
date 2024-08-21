@@ -8,14 +8,9 @@ import "../../App.css";
 
 export default function Dashboard() {
   const greet = useClock();
-  const [greeting, setGreeting] = useState("")
   const navigate = useNavigate();
 
-  useEffect(() => {
-    setTimeout(() => {
-      setGreeting(greet)
-    }, 300);
-  })
+
   function handleAddNavigator() {
     navigate("/auth/add-asset");
   }
@@ -25,7 +20,7 @@ export default function Dashboard() {
         <Header />
         <div className="container-section">
           <div className="greeting">
-            <h1 className="clock">{`${greeting}`}</h1>
+            <h1 className="clock">{`${greet}`}</h1>
           </div>
         </div>
         <div className="navigators">
