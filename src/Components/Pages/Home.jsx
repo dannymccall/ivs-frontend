@@ -13,7 +13,7 @@ export default function Home() {
   });
   const [showError, setShowError] = useState({ error: false, errorMsg: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  
+  const [first, setfirst] = useState('second');
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -49,6 +49,7 @@ export default function Home() {
       await saveCredentials("credentials", user[0]);
       setIsSubmitting(false);
       navigate(user[0].userType === 'repairer' ? "/auth/repairersDashboard" : "/auth/dashboard");
+      console.log('hello');
     }
   };
 
