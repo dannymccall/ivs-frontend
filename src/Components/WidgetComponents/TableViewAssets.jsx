@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { icons } from "../WidgetComponents/Icons";
 import "../../App.css";
@@ -14,7 +14,7 @@ function TableViewAssets({
 }) {
   const navigate = useNavigate();
   const [showSearchIcon, setShowSearchIcon] = useState(true);
-
+  const inputRef = useRef(null);
   function removeIcon() {
     setShowSearchIcon(false);
   }
@@ -23,6 +23,9 @@ function TableViewAssets({
     setShowSearchIcon(true);
   }
 
+  function focusOnInput(){
+    inputRef.current.focus()
+  }
   return (
     <>
       <div className="table-container">
@@ -42,6 +45,7 @@ function TableViewAssets({
                 onChange={(e) => searchFn(e.target.value)}
                 onFocus={removeIcon}
                 onBlur={showIcon}
+                ref={inputRef}
               />
               {showSearchIcon && (
                 <IoSearchSharp
@@ -54,6 +58,8 @@ function TableViewAssets({
                     marginLeft: "17rem",
                   }}
                   size={"40px"}
+                  onClick={focusOnInput}
+                  cursor={'pointer'}
                 />
               )}
             </div>
@@ -70,6 +76,7 @@ function TableViewAssets({
                 <th>Asset Category</th>
                 <th>Asset Condition</th>
                 <th>Quantity</th>
+                <th>Asset State</th>
                 <th>Actions</th>
               </tr>
             </thead>
@@ -90,6 +97,7 @@ function TableViewAssets({
                       <td>{asset.assetCategory}</td>
                       <td>{asset.assetCondition}</td>
                       <td>{asset.qty}</td>
+                      <td>{asset.state}</td>
                       <td>
                         <div className="actions">
                           <button

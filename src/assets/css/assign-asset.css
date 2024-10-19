@@ -10,17 +10,21 @@
     flex-direction: column;
     width: 40rem;
     align-items: center;
-    margin-top: 100px;
+    margin-top: 50px;
+    height: 100%;
 }
 .container .body .section .assign-form form {
     display: flex;
     flex-direction: column;
     width: 100%;
     align-items: center;
+    height: 100%;
+    position: relative;
 }
 
 .container .body .section .assign-form p {
     background: linear-gradient(to right, #03071b, #02040f);
+
     color: #fff;
     display: flex;
     flex-direction: column;
@@ -28,8 +32,12 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-align: center;
     width: 100%;
-    margin-bottom: 2rem;
+    position: relative;
+    margin: 0;
+
+    /* margin-bottom: 2rem; */
 }
+
 
 .container .body .section .assign-form .label {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;

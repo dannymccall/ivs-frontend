@@ -4,16 +4,24 @@ import Header from "../WidgetComponents/Header";
 import useClock from "../WidgetComponents/Clock";
 import { icons } from "../WidgetComponents/Icons";
 import { useNavigate } from "react-router-dom";
+import { getCredentials } from "../../utils/storage";
 import "../../App.css";
 
 export default function Dashboard() {
   const greet = useClock();
   const navigate = useNavigate();
 
+  const [credentials, setCredentials] = useState({});
+  const [loading, setLoading] = useState(true);
 
+
+  
+  
   function handleAddNavigator() {
     navigate("/auth/add-asset");
   }
+
+  
   return (
     <>
       <div className="container">
@@ -26,7 +34,7 @@ export default function Dashboard() {
         <div className="navigators">
           <div className="navigators-containers">
             <img src={icons.add} alt="" className="icon" />
-            <button onClick={handleAddNavigator}>Add asset</button>
+            <button onClick={() => navigate("/auth/add-asset")}>Add asset</button>
           </div>
           <div className="navigators-containers">
             <img src={icons.view} alt="" className="icon" />
@@ -47,6 +55,13 @@ export default function Dashboard() {
           >
             <img src={icons.assign} alt="" className="icon" />
             <button>Assignments</button>
+          </div>
+          <div
+            className="navigators-containers"
+            onClick={() => navigate("/auth/maintenance")}
+          >
+            <img src={icons.maintenace} alt="" className="icon" />
+            <button>See maintenance</button>
           </div>
         </div>
       </div>

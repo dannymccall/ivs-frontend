@@ -96,12 +96,20 @@ export default function AssignAsset() {
       assignment.locationRoom === "" ||
       assignment.model === "" ||
       assignment.assetName === "" ||
-      assignment.quantity === ""
+      assignment.quantity === "" 
     ) {
       setShowError({
         ...showError,
         error: true,
-        erorrMsg: "Please we need all your credentials",
+        erorrMsg: "All fields required",
+      });
+      setIsSubmitting(false);
+      return;
+    }else if(Number(assignment.quantity <= 0)){
+      setShowError({
+        ...showError,
+        error: true,
+        erorrMsg: "Add a valid quantity",
       });
       setIsSubmitting(false);
       return;

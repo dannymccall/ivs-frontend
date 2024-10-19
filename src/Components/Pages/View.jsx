@@ -2,9 +2,7 @@ import React, {
   useState,
   useEffect,
   useRef,
-  memo,
-  useMemo,
-  useCallback,
+  memo
 } from "react";
 import TableViewAssets from "../WidgetComponents/TableViewAssets";
 import { makeRequest, url } from "../../utils/make-request";

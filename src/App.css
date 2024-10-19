@@ -10,13 +10,12 @@ body {
 
 .container {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+ 
   display: flex;
   flex-direction: column;
-  background: linear-gradient(to right, #03071b, #02040f)
+  background: linear-gradient(to right, #03071b, #02040f);
+  height: 100vh;
+  width: 100%;
 }
 
 .header h6 {
@@ -91,8 +90,20 @@ body {
   font-weight: 700;
   background-color: #fff;
   height: 40px;
-  border-bottom: 0.5px solid #c6c6c6;
+  width: 90%;
+  position: relative;
 }
+.container .body .section .form p::after {
+  content: '';
+  width: 100%;
+  background:#EBA200 ;
+  height: 4px;
+  position: absolute;
+  top: 25px;
+  left: 0;
+}
+
+
 
 .container .body .section .form span {
   background-color: rgba(219, 107, 107, 0.5);
@@ -223,12 +234,12 @@ label {
 
 @keyframes blink-caret {
   from, to { border-color: transparent; }
-  50% { border-color: rgb(180, 180, 180); }
+  50% { border-color: transparent; }
   100%{border: none}
 }
 .container .navigators {
   width: 100%;
-  height: 80%;
+  height: 85%;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -237,8 +248,8 @@ label {
 
 .container .navigators .navigators-containers {
   margin: 50px;
-  width: 20rem;
-  height: 20rem;
+  width: 15rem;
+  height: 70%;
   background: #fff;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   display: flex;
@@ -246,6 +257,11 @@ label {
   justify-content: flex-end;
   transition: all 0.5s ease;
   border-radius: 10px;
+  transform: scale(0.8);
+  transition: transform 0.5s;
+}
+.container .navigators .navigators-containers:hover {
+  transform: scale(1);
 }
 
 .container .navigators .navigators-containers button {
@@ -258,10 +274,10 @@ label {
   cursor: pointer;
   font-family: Arial, Helvetica, sans-serif;
   transition: all 0.5s ease;
-  font-size: 23px;
+  font-size: 20px;
   border: none;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
+  /* font-weight: bolder; */
 }
 
 
@@ -292,7 +308,7 @@ label {
 }
 
 .table-container table {
-  border-collapse: collapse;
+  border-collapse:collapse;
   width: 80rem;
   background: #fff;
   font-family: Arial, Helvetica, sans-serif;
@@ -510,4 +526,21 @@ label {
   transform: translate(-50%, -50%) scale(1);
   visibility: visible;
   top: 50%;
+}
+
+.update-state-asset{
+  margin-left: 10px;
+  background-color: #45DFB1;
+  color: #fff;
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 13px;
+  transform: scale(0.8);
+  transition: transform 0.5s;
+}
+
+.update-state-asset:hover{
+  transform: scale(1);
 }

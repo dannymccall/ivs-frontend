@@ -24,6 +24,6 @@ export async function showMessage(
   if (result.isConfirmed) {
     cb();
   } else if (result.dismiss === Swal.DismissReason.cancel) {
-    Swal.fire("Cancelled", "Your file is safe :)", "error");
+    Swal.fire("Cancelled", "Your content is safe", "error");
   }
 }

@@ -28,11 +28,13 @@ export default function Header() {
             </li>
             {credentials && (
               <>
-                <li>
-                  <Link className="link" to="/auth/dashboard">
-                    Dashboard
-                  </Link>
-                </li>
+                {credentials.userType === "admin" && (
+                  <li>
+                    <Link className="link" to="/auth/dashboard">
+                      Dashboard
+                    </Link>
+                  </li>
+                )}
                 <li>
                   <Link className="link" to="/auth/logout">
                     Logout

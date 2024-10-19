@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+
 * {
     padding: 0;
     margin: 0;
@@ -9,7 +15,7 @@
 .closeModal {
     cursor: pointer;
     position: absolute;
-    left: 105rem;
+    left: 90%;
     margin-top: 30px;
     border-radius: 50%;
     padding: 5px;
@@ -30,11 +36,12 @@
 }
 
 .form-container {
-    width: 70%;
-    margin: 3rem auto;
-    height: 60rem;
+    width: 100%;
+    /* height: 70%; */
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    background: #F5F6FA;
     align-items: center;
 }
 
@@ -78,8 +85,10 @@
 }
 
 .form-container .form {
-    display: flex;
-    flex-direction: column;
+
+    background: #fff;
+    width: 70%;
+    height: 50%;
 }
 
 .form-container .underline {
@@ -88,20 +97,31 @@
     height: 3px;
 }
 
-.form-container .form p {
+div p {
     font-size: 30px;
     font-family: 'Courier New', Courier, monospace;
     font-weight: 700;
+    align-self: flex-start;
+    margin: 10px;
+    background: transparent;
 }
 
 .form-container .form form {
     display: flex;
     flex-direction: column;
+    padding: 10px 40px;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    overflow: scroll;
 }
 
 .form-container .form .label {
-    margin-top: 20px;
-    font-family: Arial, Helvetica, sans-serif;
+    /* margin-top: 20px; */
+    font-size: 13px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .form-container .form span {
@@ -115,35 +135,41 @@
     align-self: center;
 }
 
-.form-container .form form .form-input{
+.form-container .form form .form-input {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    width: 90%;
 }
-.form-container .form form .form-input:last-child{
-   margin-bottom: 100px;
+
+.form-container .form form .form-input:last-child {
+    margin-bottom: 50px;
 }
 
 .form-container .form form .input,
 .form-container .form form .option {
     border: none;
-    /* border: 1px solid rgb(157, 157, 157); */
-    height: 40px;
+    border: 1.5px solid rgb(230, 230, 230);
+    height: 30px;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 15px;
-    padding-inline: 20px;
+    font-size: 13px;
+    padding-inline: 5px;
     outline: none;
-    background: rgb(232, 232, 232);
     border-radius: 5px;
     box-shadow: 0 2px 5px 0 rgba(255, 255, 255, 0.5);
-    margin-bottom: 10px;
-    width: 25rem;
-    margin-right: 40px;
+    margin-bottom: 15px;
+    width: 100%;
+
+
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+
 }
 
 .form-container .form form .input:hover,
 .form-container .form form .option:hover {
-    border: 3px solid #EBA200
+    border: 1px solid #EBA200
 }
 
 .form-container .form form .input:focus,
@@ -168,11 +194,11 @@
     font-size: 15px;
     border: none;
     border-radius: 5px;
-    width: 53rem;
+    width: 100%;
     cursor: pointer;
     z-index: 0;
     position: relative;
- 
+
     /* margin:350px 60px 0 0; */
 
 }
@@ -191,7 +217,6 @@
     font-size: 15px;
     border: none;
     border-radius: 5px;
-    width: 53rem;
     cursor: pointer;
     z-index: 0;
     position: relative;
@@ -220,4 +245,93 @@
 
 .form-container .submitBtn:hover {
     background: #565656;
+}
+
+.form-container .state-color {}
+
+
+
+.custom-select {
+    border-radius: 5px;
+    padding: 10px 5px;
+    box-shadow: 0px 2px 8px 8px #e4e3e3;
+    margin-bottom: 15px;
+    position: relative;
+    transition: opacity 0.5s linear;
+}
+
+.custom-select .selected-item #assign-btn,
+.custom-select .selected-item #change-btn {
+    background: #040b2e;
+    border: none;
+    color: #fff;
+    padding: 2px 5px;
+    font-family: "Roboto", sans-serif;
+    cursor: pointer;
+    transform: scale(0.7);
+    transition: all 0.2s linear;
+    width: 5rem;
+    border-radius: 5px;
+}
+
+.custom-select .selected-item #change-btn {
+    background: transparent;
+    color: #000;
+    font-family: "Roboto", sans-serif;
+    transform: scale(1);
+    font-weight: 600;
+    color:#040b2e;
+}
+
+.custom-select .selected-item #assign-btn:hover {
+    transform: scale(1);
+
+}
+
+.custom-select .selected-item {
+    font-family: "Roboto", sans-serif;
+    font-size: 15px;
+    display: flex;
+    width: 35%;
+    justify-content: space-between;
+    align-self: center;
+}
+
+.expand_drop_down {
+    height: 20rem;
+    opacity: 1;
+}
+
+
+
+.custom-select .dropdown-item {
+    transition: all 0.1s linear;
+    cursor: pointer;
+}
+
+.custom-select .dropdown-item:hover {
+    background: #d1d2d3;
+
+}
+
+.custom-select .dropdown-item span {
+    background: #040b2e;
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+}
+
+.add_select_repairer_div {
+    background: #b6b6b6;
+}
+
+.custom-select .success{
+    font-size: 0.9em;
+    font-family: "Roboto", sans-serif;
+    background: #fff;
+    padding: 10px;
+    border-left: 5px solid green;
+    border-radius: 5px;
+    font-weight: 500;
+    box-shadow: 0px 2px 3px 3px #e4e3e3;
+
 }
